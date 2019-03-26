@@ -1,3 +1,28 @@
+##Create easy way to control path imports using react-rewrired 
+yarn react-app-rewrired
+create a file located on the base of the app
+name  -> config-overrides.js 
+
+this file will overrides configurantion from webpack and we don't need to use comand "eject"  from react. 
+
+setup this file config-overrides.js adding 
+
+    const { injectBabelPlugin } = required ('react-app-rewired');
+
+    const rootImport = [
+        "root-import",
+        {
+            rootPathPrefix;"*", //root path  prefix define symbol using for path folders
+            rootPathSuffix:"src" //root path suffix define folder from project
+        }
+    ];
+
+    module.exports = config => injectBabelPlugin(rootImport, config);
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +91,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
